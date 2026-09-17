@@ -1,0 +1,9 @@
+# nunca commitear secretos ni kubeconfig
+*.key
+*.pem
+kubeconfig
+*.kubeconfig
+.env
+secrets.yaml
+# archivos sin cifrar de sealed-secrets
+*-unsealed.yaml
