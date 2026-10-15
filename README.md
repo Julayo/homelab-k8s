@@ -27,8 +27,8 @@ y su `Application`, y push.
 ## Fases
 
 - [x] **0** — prep: repo + nodo listo
-- [ ] **1** — k3s single-node (`kubectl get nodes` = Ready)
-- [ ] **2** — ArgoCD + primer loop GitOps (podinfo desde Git)
+- [x] **1** — k3s single-node (`kubectl get nodes` = Ready) — k3s v1.36.5, nodo `cachyos-x8664`
+- [x] **2** — ArgoCD + primer loop GitOps (podinfo desde Git)
 - [ ] **3** — migrar un servicio real (uptime-kuma → PVC + Ingress)
 - [ ] **4** — endurecer (sealed-secrets) + documentar
 

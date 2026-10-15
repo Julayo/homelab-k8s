@@ -1,0 +1,23 @@
+# App-of-apps raíz: observa apps/ y crea cada Application que viva ahí.
+# Este es el ÚNICO manifiesto que se aplica a mano (una vez). De aquí en
+# adelante, añadir un servicio = commitear su Application en apps/ + push.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Julayo/homelab-k8s
+    targetRevision: main
+    path: apps
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
