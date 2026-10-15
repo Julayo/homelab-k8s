@@ -6,9 +6,11 @@ metadata:
   labels:
     app: uptime-kuma
 spec:
-  selector:
+  type: NodePort           # expone un puerto estable en el nodo (127.0.0.1:30300)
+  selector:                # para que tailscale serve lo publique con cert confiable
     app: uptime-kuma
   ports:
     - name: http
       port: 3001
       targetPort: http
+      nodePort: 30300
