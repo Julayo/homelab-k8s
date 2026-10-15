@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uptime-kuma
+  namespace: uptime-kuma
+spec:
+  ingressClassName: traefik
+  rules:
+    # sslip.io resuelve el hostname a la IP embebida (IP Tailscale del nodo)
+    # -> alcanzable desde cualquier dispositivo del tailnet, sin tocar DNS
+    - host: uptime.100.94.194.43.sslip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: uptime-kuma
+                port:
+                  number: 3001
